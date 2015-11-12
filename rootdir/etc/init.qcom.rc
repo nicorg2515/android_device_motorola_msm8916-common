@@ -361,7 +361,7 @@ service mmi-touch-sh /vendor/bin/init.mmi.touch.sh synaptics
     oneshot
 
 service wcnss-service /vendor/bin/wcnss_service
-    class main
+    class late_start
     user system
     group system wifi radio
     writepid /dev/cpuset/system-background/tasks
