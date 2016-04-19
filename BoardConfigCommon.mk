@@ -195,6 +195,9 @@ ifeq ($(HOST_OS),linux)
   endif
 endif
 
+# Peripheral manager
+TARGET_PER_MGR_ENABLED := true
+
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
 BOARD_USES_AOSP_WLAN_HAL := true

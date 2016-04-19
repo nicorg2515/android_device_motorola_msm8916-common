@@ -713,6 +713,12 @@ on charger
     class_stop main
     class_stop late_start
 
+service per_mgr /vendor/bin/pm-service
+    class core
+    user system
+    group system
+    writepid /dev/cpuset/system-background/tasks
+
 on moto-charger
     setprop ro.board.platform msm8916
 
