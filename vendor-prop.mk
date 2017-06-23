@@ -18,6 +18,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.audio.calfile4=/vendor/etc/acdbdata/Hdmi_cal.acdb \
 	persist.audio.calfile5=/vendor/etc/acdbdata/Headset_cal.acdb \
 	persist.audio.calfile6=/vendor/etc/acdbdata/Speaker_cal.acdb \
+	ro.config.media_vol_steps=25 \
 	ro.vendor.audio.ssr=false \
 	vendor.voice.path.for.pcm.voip=true
 
