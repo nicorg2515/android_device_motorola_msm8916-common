@@ -52,6 +52,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.opengles.version=196608 \
 	persist.hwc.mdpcomp.enable=1 \
 	debug.sf.disable_backpressure=1 \
+	debug.sf.latch_unsignaled=1 \
 	debug.sf.recomputecrop=0
 
 # GPS
