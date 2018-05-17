@@ -50,8 +50,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.opengles.version=196608 \
-	persist.hwc.mdpcomp.enable=1 \
-	debug.sf.enable_hwc_vds=1
+	persist.hwc.mdpcomp.enable=1
 
 # GPS
 PRODUCT_PROPERTY_OVERRIDES += \
