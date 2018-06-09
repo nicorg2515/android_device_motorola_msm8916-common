@@ -32,11 +32,12 @@ public class DozePreferenceFragment extends PreferenceFragment {
 
         AmbientDisplayConfiguration adConfig = new AmbientDisplayConfiguration(getActivity());
         boolean dozeEnabled = adConfig.pulseOnNotificationEnabled(UserHandle.USER_CURRENT);
+        boolean aodEnabled = adConfig.alwaysOnEnabled(UserHandle.USER_CURRENT);
 
         PreferenceCategory ambientDisplayCat = (PreferenceCategory)
                 findPreference(CATEGORY_AMBIENT_DISPLAY);
         if (ambientDisplayCat != null) {
-            ambientDisplayCat.setEnabled(dozeEnabled);
+            ambientDisplayCat.setEnabled(dozeEnabled && !aodEnabled);
         }
     }
 }

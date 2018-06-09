@@ -68,16 +68,20 @@ public class LineageActionsSettings implements SharedPreferences.OnSharedPrefere
         return mChopChopEnabled;
     }
 
+    public boolean isAODEnabled() {
+        return mAmbientDisplayConfiguration.alwaysOnEnabled(UserHandle.USER_CURRENT);
+    }
+
     public boolean isDozeEnabled() {
         return mAmbientDisplayConfiguration.pulseOnNotificationEnabled(UserHandle.USER_CURRENT);
     }
 
     public boolean isIrWakeupEnabled() {
-        return isDozeEnabled() && mIrWakeUpEnabled;
+        return isDozeEnabled() && !isAODEnabled() && mIrWakeUpEnabled;
     }
 
     public boolean isPickUpEnabled() {
-        return isDozeEnabled() && mPickUpGestureEnabled;
+        return isDozeEnabled() && !isAODEnabled() && mPickUpGestureEnabled;
     }
 
     public boolean isIrSilencerEnabled() {
