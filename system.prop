@@ -54,6 +54,10 @@ ro.opengles.version=196608
 persist.hwc.mdpcomp.enable=1
 debug.sf.enable_hwc_vds=1
 
+# Google Assistant
+PRODUCT_PROPERTY_OVERRIDES += \
+ro.opa.eligible_device=true
+
 # GPS
 ro.gps.agps_provider=1
 ro.pip.gated=0
