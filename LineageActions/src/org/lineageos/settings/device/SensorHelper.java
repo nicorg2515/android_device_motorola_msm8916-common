@@ -27,6 +27,10 @@ import android.hardware.Sensor;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+
 public class SensorHelper {
     private static final String TAG = "LineageActions";
 
@@ -40,11 +44,17 @@ public class SensorHelper {
 
     private final Context mContext;
     private final SensorManager mSensorManager;
+    private final ExecutorService mExecutorService;
 
     public SensorHelper(Context context) {
         mContext = context;
         mSensorManager = (SensorManager) mContext .getSystemService(Context.SENSOR_SERVICE);
         dumpSensorsList();
+        mExecutorService = Executors.newSingleThreadExecutor();
+    }
+
+    private Future<?> submit(Runnable runnable) {
+        return mExecutorService.submit(runnable);
     }
 
     private void dumpSensorsList() {
@@ -88,13 +98,17 @@ public class SensorHelper {
     }
 
     public void registerListener(Sensor sensor, SensorEventListener listener) {
-        if (!mSensorManager.registerListener(listener, sensor,
-            SensorManager.SENSOR_DELAY_NORMAL, BATCH_LATENCY_IN_MS * 1000)) {
-            throw new RuntimeException("Failed to registerListener for sensor " + sensor);
-        }
+        submit(() -> {
+            if (!mSensorManager.registerListener(listener, sensor,
+                SensorManager.SENSOR_DELAY_NORMAL, BATCH_LATENCY_IN_MS * 1000)) {
+                throw new RuntimeException("Failed to registerListener for sensor " + sensor);
+            }
+        });
     }
 
     public void unregisterListener(SensorEventListener listener) {
-        mSensorManager.unregisterListener(listener);
+        submit(() -> {
+            mSensorManager.unregisterListener(listener);
+        });
     }
 }
