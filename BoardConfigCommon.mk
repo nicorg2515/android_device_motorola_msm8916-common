@@ -58,6 +58,7 @@ TARGET_KERNEL_SOURCE := kernel/motorola/msm8916
 # Kernel Toolchain
 KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-7.2/bin
 KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
+BOARD_KERNEL_CMDLINE += pm.sleep_mode=1
 
 # Audio
 AUDIO_FEATURE_ENABLED_KPI_OPTIMIZE := true
