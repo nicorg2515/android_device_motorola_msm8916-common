@@ -242,10 +242,6 @@
          provisioning, availability etc -->
     <bool name="config_carrier_volte_available">true</bool>
     
-    <!-- Control whether Night display is available. This should only be enabled on devices
-           with HWC 2.0 or higher. -->
-    <bool name="config_nightDisplayAvailable">false</bool>
-
     <!-- Whether WiFi display is supported by this device.
          There are many prerequisites for this feature to work correctly.
          Here are a few of them:
