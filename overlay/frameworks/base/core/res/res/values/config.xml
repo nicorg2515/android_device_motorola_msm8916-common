@@ -246,10 +246,6 @@
            with HWC 2.0 or higher. -->
     <bool name="config_nightDisplayAvailable">false</bool>
 
-    <!-- Boolean indicating whether the HWC setColorTransform function can be performed efficiently
-         in hardware. -->
-    <bool name="config_setColorTransformAccelerated">false</bool>
-    
     <!-- Whether WiFi display is supported by this device.
          There are many prerequisites for this feature to work correctly.
          Here are a few of them:
