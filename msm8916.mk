@@ -162,10 +162,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     LineageActions
 
-# Vendor security patch level
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.lineage.build.vendor_security_patch=2018-04-01
-
 # Media
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_audio.xml \
@@ -259,4 +255,5 @@ PRODUCT_GMS_CLIENTID_BASE := android-motorola
 $(call inherit-product-if-exists, vendor/motorola/msm8916-common/msm8916-common-vendor.mk)
 $(call inherit-product-if-exists, vendor/motorola/msm8916-common/msm8916-common-vendor-ims-blobs.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-$(call inherit-product, vendor/aosp/common.mk)
+$(call inherit-product, vendor/carbon/config/gsm.mk)
+$(call inherit-product, vendor/carbon/config/common.mk)
