@@ -37,23 +37,29 @@ public class CameraActivationSensor implements SensorEventListener, UpdatedState
     private final SensorHelper mSensorHelper;
 
     private final Sensor mSensor;
+    private final Sensor mProx;
 
     private boolean mIsEnabled;
+    private boolean mProxIsCovered;
 
     public CameraActivationSensor(LineageActionsSettings lineageActionsSettings, SensorHelper sensorHelper) {
         mLineageActionsSettings = lineageActionsSettings;
         mSensorHelper = sensorHelper;
         mSensor = sensorHelper.getCameraActivationSensor();
-        mSensorHelper.registerListener(mSensor, this);
+        mProx = sensorHelper.getProximitySensor();
     }
 
     @Override
     public synchronized void updateState() {
         if (mLineageActionsSettings.isCameraGestureEnabled() && !mIsEnabled) {
             Log.d(TAG, "Enabling");
+            mSensorHelper.registerListener(mSensor, this);
+            mSensorHelper.registerListener(mProx, mProxListener);
             mIsEnabled = true;
         } else if (! mLineageActionsSettings.isCameraGestureEnabled() && mIsEnabled) {
             Log.d(TAG, "Disabling");
+            mSensorHelper.unregisterListener(this);
+            mSensorHelper.unregisterListener(mProxListener);
             mIsEnabled = false;
         }
     }
@@ -61,10 +67,26 @@ public class CameraActivationSensor implements SensorEventListener, UpdatedState
     @Override
     public void onSensorChanged(SensorEvent event) {
         Log.d(TAG, "activate camera");
-        if (mIsEnabled) mLineageActionsSettings.cameraAction();
+        if (mProxIsCovered) {
+            Log.d(TAG, "proximity sensor covered, ignoring camera");
+            return;
+        }
+        mLineageActionsSettings.cameraAction();
     }
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
     }
+
+    private SensorEventListener mProxListener = new SensorEventListener() {
+        @Override
+        public synchronized void onSensorChanged(SensorEvent event) {
+            mProxIsCovered = event.values[0] < mProx.getMaximumRange();
+        }
+
+        @Override
+        public void onAccuracyChanged(Sensor mSensor, int accuracy) {
+        }
+    };
+
 }
