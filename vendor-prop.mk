@@ -111,7 +111,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	mm.enable.smoothstreaming=true \
 	mmp.enable.3g2=true \
 	media.aac_51_output_enabled=true \
-	audio.offload.video=true
+	audio.offload.video=true \
+	vendor.mediacodec.binder.size=6
 
 # NITZ
 PRODUCT_PROPERTY_OVERRIDES += \
