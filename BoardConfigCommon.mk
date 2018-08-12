@@ -176,9 +176,6 @@ TARGET_USES_MKE2FS := true
 # Release Tools
 TARGET_RELEASETOOLS_EXTENSIONS := $(VENDOR_PATH)
 
-# RIL
-BOARD_PROVIDES_LIBRIL := true
-
 # SELinux
 include device/qcom/sepolicy-legacy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
