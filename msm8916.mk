@@ -262,3 +262,4 @@ $(call inherit-product-if-exists, vendor/motorola/msm8916-common/msm8916-common-
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, vendor/carbon/config/gsm.mk)
 $(call inherit-product, vendor/carbon/config/common.mk)
+include device/motorola/msm8916-common/vendor-prop.mk
