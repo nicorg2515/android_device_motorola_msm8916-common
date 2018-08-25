@@ -120,6 +120,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/extract_firmware.sh:$(TARGET_COPY_OUT_VENDOR)/bin/extract_firmware.sh
 endif
 
+# Shims Wrapping
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/wrap_shims.sh:$(TARGET_COPY_OUT_VENDOR)/bin/wrap_shims.sh
+
 # FM
 PRODUCT_PACKAGES += \
     FMRadio \
