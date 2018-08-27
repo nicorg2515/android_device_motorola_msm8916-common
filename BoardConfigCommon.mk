@@ -111,8 +111,9 @@ TARGET_USES_NEW_ION_API := true
 # Display Renderer
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 
-# Exclude serif fonts for saving system.img size.
+# Fonts
 EXCLUDE_SERIF_FONTS := true
+SMALLER_FONT_FOOTPRINT := true
 
 # UI
 TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS := 0x02000000U
