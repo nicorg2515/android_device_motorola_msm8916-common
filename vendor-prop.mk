@@ -37,17 +37,17 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	media.stagefright.less-secure=true
 
 # Dalvik Heap
-PRODUCT_PROPERTY_OVERRIDES += \
-	dalvik.vm.boot-dex2oat-threads=4 \
-	dalvik.vm.dex2oat-threads=2 \
-	dalvik.vm.image-dex2oat-threads=4 \
-	dalvik.vm.heapgrowthlimit=192m \
-	dalvik.vm.heapmaxfree=8m \
-	dalvik.vm.heapminfree=2m \
-	dalvik.vm.heapsize=36m \
-	dalvik.vm.heapsize=512m \
-	dalvik.vm.heapstartsize=8m \
-	dalvik.vm.heaptargetutilization=0.75
+#PRODUCT_PROPERTY_OVERRIDES += \
+#	dalvik.vm.boot-dex2oat-threads=4 \
+#	dalvik.vm.dex2oat-threads=2 \
+#	dalvik.vm.image-dex2oat-threads=4 \
+#	dalvik.vm.heapgrowthlimit=192m \
+#	dalvik.vm.heapmaxfree=8m \
+#	dalvik.vm.heapminfree=2m \
+#	dalvik.vm.heapsize=36m \
+#	dalvik.vm.heapsize=512m \
+#	dalvik.vm.heapstartsize=8m \
+#	dalvik.vm.heaptargetutilization=0.75
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
