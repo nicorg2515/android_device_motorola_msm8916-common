@@ -15,6 +15,7 @@
 def FullOTA_InstallEnd(info):
   info.script.AppendExtra('ifelse(is_mounted("/system"), unmount("/system"));')
   info.script.AppendExtra('ifelse(is_mounted("/vendor"), unmount("/vendor"));')
+  info.script.AppendExtra('mount("ext4", "EMMC", "/dev/block/bootdevice/by-name/system", "/system");');
   info.script.AppendExtra('mount("ext4", "EMMC", "/dev/block/bootdevice/by-name/cache", "/vendor", "");')
   info.script.AppendExtra('mount("ext4", "EMMC", "/dev/block/bootdevice/by-name/modem", "/firmware", "");')
   info.script.AppendExtra('ui_print("Extracting modem firmware");')
@@ -23,6 +24,7 @@ def FullOTA_InstallEnd(info):
   info.script.AppendExtra('ui_print("Wrapping shims");')
   info.script.AppendExtra('run_program("/sbin/sh", "/vendor/bin/wrap_shims.sh");')
   info.script.AppendExtra('ui_print("Shims wrapped");')
+  info.script.AppendExtra('unmount("/system");')
   info.script.AppendExtra('unmount("/vendor");')
   info.script.AppendExtra('unmount("/firmware");')
 
