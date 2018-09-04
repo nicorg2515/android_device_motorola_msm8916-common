@@ -85,7 +85,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # IMS
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.dbg.volte_avail_ovr=1 \
-	persist.radio.jbims=1 \
 	persist.radio.ROTATION_ENABLE=1 \
 	persist.dbg.ims_volte_enable=1 \
 	persist.dbg.wfc_avail_ovr=1 \
