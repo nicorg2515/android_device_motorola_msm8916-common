@@ -133,6 +133,14 @@ endif
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wrap_shims.sh:$(TARGET_COPY_OUT_VENDOR)/bin/wrap_shims.sh
 
+# Build Props Update
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/update_build_prop.sh:$(TARGET_COPY_OUT_VENDOR)/bin/update_build_prop.sh \
+    $(LOCAL_PATH)/configs/system_XT1556.prop:$(TARGET_COPY_OUT_VENDOR)/etc/system_XT1556.prop \
+    $(LOCAL_PATH)/configs/vendor_XT1556.prop:$(TARGET_COPY_OUT_VENDOR)/etc/vendor_XT1556.prop \
+    $(LOCAL_PATH)/configs/system_XT1557.prop:$(TARGET_COPY_OUT_VENDOR)/etc/system_XT1557.prop \
+    $(LOCAL_PATH)/configs/vendor_XT1557.prop:$(TARGET_COPY_OUT_VENDOR)/etc/vendor_XT1557.prop
+
 # FM
 PRODUCT_PACKAGES += \
     FMRadio \

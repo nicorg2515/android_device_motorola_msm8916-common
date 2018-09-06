@@ -1,0 +1,4 @@
+ro.vendor.product.device=merlin
+ro.vendor.build.product=merlin
+ro.vendor.build.description=merlin_retasia-user 6.0.1 MPD24.107-56 30 release-keys
+ro.vendor.build.fingerprint=motorola/merlin_retasia/merlin:6.0.1/MPD24.107-56/30:user/release-keys

@@ -1,0 +1,7 @@
+ro.mot.build.customerid=retail
+ro.product.device=merlin
+ro.build.product=merlin
+ro.build.description=merlin_retail-user 6.0.1 MPD24.107-56 30 release-keys
+ro.build.fingerprint=motorola/merlin_retail/merlin:6.0.1/MPD24.107-56/30:user/release-keys
+ro.gsm.data_retry_config=default_randomization=2000,max_retries=infinite,1000,1000,80000,125000,485000,905000
+persist.radio.process_sups_ind=1
