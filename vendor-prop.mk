@@ -28,7 +28,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.bluetooth.hfp.ver=1.6 \
 	ro.qualcomm.bt.hci_transport=smd \
 	ro.bluetooth.dun=true \
-	ro.bluetooth.sap=true
+	ro.bluetooth.sap=true \
+	ro.boot.btmacaddr=00:00:00:00:00:00
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
