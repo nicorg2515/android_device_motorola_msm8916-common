@@ -30,3 +30,10 @@
 /dev/stml0xx_as                                             u:object_r:sensors_device:s0
 /dev/stml0xx_ms                                             u:object_r:sensors_device:s0
 /data/misc/akmd(/.*)?                                       u:object_r:sensors_data_file:s0
+
+/sys/devices/soc\.0/qcom,bcl\.[0-9]+/power_supply(/.*)?     u:object_r:sysfs_batteryinfo:s0
+/sys/devices/soc\.0/78b5000\.i2c/i2c-1/1-001c/power_supply(/.*)? u:object_r:sysfs_batteryinfo:s0
+/sys/devices/soc\.0/78b5000\.i2c/i2c-1/1-0036/power_supply(/.*)? u:object_r:sysfs_batteryinfo:s0
+/sys/devices/soc\.0/78d9000\.usb/power_supply(/.*)?         u:object_r:sysfs_batteryinfo:s0
+
+/sys/devices/soc\.0/leds-atc-[0-9]+/leds(/.*)?              u:object_r:sysfs_leds:s0
