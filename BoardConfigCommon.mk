@@ -102,7 +102,6 @@ BOARD_NO_CHARGER_LED := true
 TARGET_HW_DISK_ENCRYPTION := true
 
 # Display
-NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 TARGET_USES_GRALLOC1 := true
 TARGET_USES_ION := true
 TARGET_QCOM_DISPLAY_VARIANT := caf
@@ -110,7 +109,6 @@ TARGET_USES_NEW_ION_API := true
 
 # Display Renderer
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
-USE_OPENGL_RENDERER := true
 
 # Exclude serif fonts for saving system.img size.
 EXCLUDE_SERIF_FONTS := true
