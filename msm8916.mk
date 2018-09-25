@@ -119,7 +119,8 @@ PRODUCT_PACKAGES += \
     gralloc.msm8916 \
     copybit.msm8916 \
     hwcomposer.msm8916 \
-    memtrack.msm8916
+    memtrack.msm8916 \
+    libtinyxml
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -196,7 +197,7 @@ PRODUCT_PACKAGES += \
 
 # LiveDisplay native
 PRODUCT_PACKAGES += \
-	vendor.lineage.livedisplay@1.0-service-sdm
+	vendor.lineage.livedisplay@1.0-service-legacymm
 
 # Media
 PRODUCT_COPY_FILES += \
