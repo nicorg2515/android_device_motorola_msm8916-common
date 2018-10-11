@@ -6,3 +6,5 @@ for file in /firmware/image/*.gz; do
   chmod 644 /vendor/firmware/$OUT_FILE
   chcon u:object_r:firmware_file:s0 /vendor/firmware/$OUT_FILE
 done
+
+exit 0

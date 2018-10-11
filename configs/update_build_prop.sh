@@ -36,3 +36,5 @@ chmod 644 "/system/build.prop"
 chmod 644 "/vendor/build.prop"
 restorecon "/system/build.prop"
 restorecon "/vendor/build.prop"
+
+exit 0

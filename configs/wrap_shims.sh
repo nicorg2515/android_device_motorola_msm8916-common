@@ -16,3 +16,5 @@ sed -i "s|libcutils.so|libboring.so|g" /vendor/lib/libmmqjpeg_codec.so
 restorecon /vendor/lib/libmmqjpeg_codec.so
 sed -i "s|libstagefright.so|libshim_camera.so|g" /vendor/lib/libjustshoot.so
 restorecon /vendor/lib/libjustshoot.so
+
+exit 0
