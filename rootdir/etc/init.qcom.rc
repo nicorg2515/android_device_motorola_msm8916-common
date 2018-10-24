@@ -611,19 +611,6 @@ service rmt_storage /vendor/bin/rmt_storage
 on property:ro.boot.emmc=true
     start rmt_storage
 
-service hciattach /vendor/bin/init.qcom.bt.sh
-    class late_start
-    user bluetooth
-    group bluetooth net_bt_admin
-    disabled
-    oneshot
-
-on property:vendor.bluetooth.hciattach=true
-    start hciattach
-
-on property:vendor.bluetooth.hciattach=false
-    setprop vendor.bluetooth.status off
-
 on property:vendor.wc_transport.start_hci=true
     start start_hci_filter
 
