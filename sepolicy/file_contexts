@@ -42,9 +42,6 @@
 /data/misc/akmd(/.*)?                                       u:object_r:sensors_data_file:s0
 
 /sys/devices/soc\.0/qcom,bcl\.[0-9]+/power_supply(/.*)?     u:object_r:sysfs_batteryinfo:s0
-/sys/devices/soc\.0/78b5000\.i2c/i2c-1/1-001c/power_supply(/.*)? u:object_r:sysfs_batteryinfo:s0
-/sys/devices/soc\.0/78b5000\.i2c/i2c-1/1-0036/power_supply(/.*)? u:object_r:sysfs_batteryinfo:s0
-/sys/devices/soc\.0/78d9000\.usb/power_supply(/.*)?         u:object_r:sysfs_batteryinfo:s0
 
 # sysfs_battery_supply
 /sys/devices/soc.\0/78b5000\.i2c/i2c-1/1-001c/power_supply/battery/temp_hotspot u:object_r:sysfs_battery_supply:s0
