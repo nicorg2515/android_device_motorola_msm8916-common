@@ -116,6 +116,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
+	persist.data.mode=concurrent \
+	persist.data.netmgrd.qos.enable=true \
 	persist.data.qmi.adb_logmask=0 \
 	persist.radio.aosp_usr_pref_sel=true \
 	persist.radio.apn_delay=5000 \
@@ -126,12 +128,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.radio.relay_oprt_change=1 \
 	rild.libargs=-d/dev/smd0 \
 	rild.libpath=/vendor/lib/libril-wrapper.so \
-	persist.radio.add_power_save=1
-
-# Netmgrd
-	ro.use_data_netmgrd=true \
-	persist.data.netmgrd.qos.enable=true \
-	persist.data.mode=concurrent
+	persist.radio.add_power_save=1 \
+	ro.telephony.call_ring.multiple=false
 
 # Play store
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -140,3 +138,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.com.google.clientidbase.ms=android-motorola \
 	ro.com.google.clientidbase.yt=android-motorola
 
+# WiFi
+PRODUCT_PROPERTY_OVERRIDES += \
+	wifi.interface=wlan0
