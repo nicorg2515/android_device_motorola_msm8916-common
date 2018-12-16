@@ -77,9 +77,7 @@ ifeq ($(BOARD_USES_STML0XX_SENSOR_HUB), true)
     LOCAL_C_INCLUDES := $(LOCAL_PATH)/$(SH_PATH)
     LOCAL_C_INCLUDES += external/zlib
 
-    LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
-    # Need the UAPI output directory to be populated with stml0xx.h
-    LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
+    LOCAL_HEADER_LIBRARIES := generated_kernel_headers
 
     LOCAL_PRELINK_MODULE := false
     LOCAL_MODULE_RELATIVE_PATH := hw
@@ -100,9 +98,7 @@ ifeq ($(BOARD_USES_STML0XX_SENSOR_HUB), true)
     LOCAL_SRC_FILES := $(SH_PATH)/sensorhub.c
     LOCAL_SRC_FILES += $(UTILS_PATH)/sensor_time.cpp
 
-    LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
-    # Need the UAPI output directory to be populated with stml0xx.h
-    LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
+    LOCAL_HEADER_LIBRARIES := generated_kernel_headers
 
     LOCAL_SHARED_LIBRARIES := libcutils libc libutils liblog
     LOCAL_VENDOR_MODULE := true
@@ -130,9 +126,7 @@ ifeq ($(BOARD_USES_STML0XX_SENSOR_HUB), true)
             $(LOCAL_PATH)/$(AKM_PATH) \
             $(LOCAL_PATH)/$(AKM_PATH)/$(SMARTCOMPASS_LIB)
 
-        LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
-        # Need the UAPI output directory to be populated with akm09912.h
-        LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
+        LOCAL_HEADER_LIBRARIES := generated_kernel_headers
 
         LOCAL_SRC_FILES := \
             $(AKM_PATH)/AKMD_Driver.c \
@@ -187,9 +181,7 @@ ifeq ($(BOARD_USES_STML0XX_SENSOR_HUB), true)
     LOCAL_CFLAGS += -Wall -Wextra -Weffc++
     LOCAL_SHARED_LIBRARIES := libcutils libc liblog
 
-    LOCAL_C_INCLUDES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
-    # Need the UAPI output directory to be populated with stml0xx.h
-    LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
+    LOCAL_HEADER_LIBRARIES := generated_kernel_headers
 
     include $(BUILD_EXECUTABLE)
 
