@@ -39,19 +39,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	media.stagefright.legacyencoder=true \
 	media.stagefright.less-secure=true
 
-# Dalvik Heap
-#PRODUCT_PROPERTY_OVERRIDES += \
-#	dalvik.vm.boot-dex2oat-threads=4 \
-#	dalvik.vm.dex2oat-threads=2 \
-#	dalvik.vm.image-dex2oat-threads=4 \
-#	dalvik.vm.heapgrowthlimit=192m \
-#	dalvik.vm.heapmaxfree=8m \
-#	dalvik.vm.heapminfree=2m \
-#	dalvik.vm.heapsize=36m \
-#	dalvik.vm.heapsize=512m \
-#	dalvik.vm.heapstartsize=8m \
-#	dalvik.vm.heaptargetutilization=0.75
-
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.opengles.version=196608 \
@@ -102,16 +89,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	audio.offload.video=true
 
 # NITZ
-#PRODUCT_PROPERTY_OVERRIDES += \
-#	persist.rild.nitz_plmn=\
-#	persist.rild.nitz_long_ons_0=\
-#	persist.rild.nitz_long_ons_1=\
-#	persist.rild.nitz_long_ons_2=\
-#	persist.rild.nitz_long_ons_3=\
-#	persist.rild.nitz_short_ons_0=\
-#	persist.rild.nitz_short_ons_1=\
-#	persist.rild.nitz_short_ons_2=\
-#	persist.rild.nitz_short_ons_3=\
+PRODUCT_PROPERTY_OVERRIDES += \
+	persist.rild.nitz_plmn="" \
+	persist.rild.nitz_long_ons_0="" \
+	persist.rild.nitz_long_ons_1="" \
+	persist.rild.nitz_long_ons_2="" \
+	persist.rild.nitz_long_ons_3="" \
+	persist.rild.nitz_short_ons_0="" \
+	persist.rild.nitz_short_ons_1="" \
+	persist.rild.nitz_short_ons_2="" \
+	persist.rild.nitz_short_ons_3=""
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
