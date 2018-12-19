@@ -458,8 +458,11 @@ service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
     disabled
     oneshot
 
+on property:persist.radio.multisim.config=dsda
+    enable ril-daemon2
+
 on property:persist.radio.multisim.config=dsds
-    start ril-daemon2
+    enable ril-daemon2
 
 service ril-daemon2 /vendor/bin/hw/rild -c 2
     class main
