@@ -113,7 +113,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.radio.oem_ind_to_both=false \
 	persist.radio.relay_oprt_change=1 \
 	rild.libargs=-d/dev/smd0 \
-	rild.libpath=/vendor/lib/libril-qc-qmi-1.so \
+	rild.libpath=/vendor/lib/libril-wrapper.so \
 	persist.radio.add_power_save=1 \
 	ro.telephony.call_ring.multiple=false
 
