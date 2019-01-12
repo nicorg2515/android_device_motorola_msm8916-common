@@ -179,6 +179,9 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(VENDOR_PATH)
 include device/qcom/sepolicy-legacy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
 
+# Telephony
+TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
+
 ifeq ($(HOST_OS),linux)
   ifneq ($(TARGET_BUILD_VARIANT),eng)
     ifeq ($(WITH_DEXPREOPT),)
