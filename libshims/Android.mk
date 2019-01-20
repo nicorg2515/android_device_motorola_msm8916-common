@@ -24,20 +24,11 @@ LOCAL_VENDOR_MODULE := true
 LOCAL_MODULE_TAGS := optional
 include $(BUILD_SHARED_LIBRARY)
 
-# RIL
+# RIL + Qsap Shim
 include $(CLEAR_VARS)
-LOCAL_SRC_FILES := ASensorManager.cpp
-LOCAL_SHARED_LIBRARIES := android.hardware.sensors@1.0 libandroid
+LOCAL_SRC_FILES := ASensorManager.cpp libqsap_shim.c
+LOCAL_SHARED_LIBRARIES := android.hardware.sensors@1.0 libqsap_sdk liblog
 LOCAL_STATIC_LIBRARIES := android.hardware.sensors@1.0-convert
-LOCAL_MODULE := libshimril
-LOCAL_VENDOR_MODULE := true
-LOCAL_MODULE_TAGS := optional
-include $(BUILD_SHARED_LIBRARY)
-
-# Qsap Shim
-include $(CLEAR_VARS)
-LOCAL_SRC_FILES := libqsap_shim.c
-LOCAL_SHARED_LIBRARIES := libqsap_sdk liblog
 LOCAL_C_INCLUDES := $(TOP)/system/qcom/softap/sdk
 LOCAL_MODULE := libqsapshim
 LOCAL_VENDOR_MODULE := true

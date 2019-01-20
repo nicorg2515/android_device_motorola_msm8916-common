@@ -247,7 +247,6 @@ PRODUCT_PACKAGES += \
     libqsapshim \
     libril-wrapper \
     librmnetctl \
-    libshimril \
     libxml2
 
 # Telephony

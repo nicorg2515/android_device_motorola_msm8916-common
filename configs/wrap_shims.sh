@@ -2,7 +2,6 @@
 
 #Hex edit Common libs
 sed -i "s|libqsap_sdk.so|libqsapshim.so|g" /vendor/lib/libmdmcutback.so
-sed -i "s|libandroid.so|libshimril.so|g" /vendor/lib/libmdmcutback.so
 restorecon /vendor/lib/libmdmcutback.so
 sed -i "s|libcutils.so|libsensor.so|g" /vendor/lib/libmot_sensorlistener.so
 restorecon /vendor/lib/libmot_sensorlistener.so
