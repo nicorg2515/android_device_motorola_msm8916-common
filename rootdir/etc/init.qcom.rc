@@ -119,12 +119,12 @@ on boot
     write /sys/class/kgsl/kgsl-3d0/wake_timeout 250
 
     # File flags for prebuilt ril db file
-    write /data/misc/radio/prebuilt_db_support 1
-    chown radio radio /data/misc/radio/prebuilt_db_support
-    chmod 0400 /data/misc/radio/prebuilt_db_support
-    write /data/misc/radio/db_check_done 0
-    chown radio radio /data/misc/radio/db_check_done
-    chmod 0660 /data/misc/radio/db_check_done
+    write /data/vendor/radio/prebuilt_db_support 1
+    chown radio radio /data/vendor/radio/prebuilt_db_support
+    chmod 0400 /data/vendor/radio/prebuilt_db_support
+    write /data/vendor/radio/db_check_done 0
+    chown radio radio /data/vendor/radio/db_check_done
+    chmod 0660 /data/vendor/radio/db_check_done
 
     # Copy prebuilt qcril.db files always
     trigger copy_qcril_db
@@ -296,8 +296,11 @@ on post-fs-data
     mkdir /data/misc/cutback 0770 radio wifi
 
     #create netmgr log dir
-    mkdir /data/misc/netmgr 0770 radio radio
-    chmod 0770 /data/misc/netmgr
+    mkdir /data/vendor/netmgr 0770 radio radio
+    chmod 0770 /data/vendor/netmgr
+
+    #Create directory for radio
+    mkdir /data/vendor/radio 0770 system radio
 
     # Permissions for Factory Test of Charging Paths
     chown oem_5001 oem_5001 /sys/class/power_supply/battery/device/force_chg_auto_enable
@@ -476,9 +479,9 @@ service ril-daemon2 /vendor/bin/hw/rild -c 2
     writepid /dev/cpuset/system-background/tasks
 
 on copy_qcril_db
-    copy /vendor/qcril.db /data/misc/radio/qcril.db
-    chown radio radio /data/misc/radio/qcril.db
-    write /data/misc/radio/db_check_done 1
+    copy /vendor/radio/qcril_database/qcril.db /data/vendor/radio/qcril.db
+    chown radio radio /data/vendor/radio/qcril.db
+    write /data/vendor/radio/db_check_done 1
 
 on property:sys.uicc.activate.timeout=1
     trigger copy_qcril_db
