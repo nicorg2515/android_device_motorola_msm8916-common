@@ -180,7 +180,8 @@ PRODUCT_COPY_FILES += \
 
 # IMS
 PRODUCT_PACKAGES += \
-    ims-ext-common
+    ims-ext-common \
+    lib-imsvt_shim
 
 # IRSC
 PRODUCT_COPY_FILES += \
