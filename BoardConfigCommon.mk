@@ -171,6 +171,10 @@ TARGET_USES_MKE2FS := true
 # Release Tools
 TARGET_RELEASETOOLS_EXTENSIONS := $(VENDOR_PATH)
 
+# RIL
+TARGET_RIL_VARIANT := caf
+TARGET_USES_OLD_MNC_FORMAT := true
+
 # SELinux
 include device/qcom/sepolicy-legacy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
