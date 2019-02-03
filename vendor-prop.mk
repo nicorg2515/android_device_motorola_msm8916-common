@@ -39,6 +39,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	media.stagefright.legacyencoder=true \
 	media.stagefright.less-secure=true
 
+# CNE
+PRODUCT_PROPERTY_OVERRIDES += \
+	persist.cne.feature=1 \
+	persist.cne.logging.qxdm=3974 \
+	persist.cne.rat.wlan.chip.oem=WCN \
+	persist.dpm.feature=0 \
+	persist.sys.cnd.iwlan=1
+
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.opengles.version=196608 \
