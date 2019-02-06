@@ -137,6 +137,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.radio.aosp_usr_pref_sel=true \
 	persist.radio.apn_delay=5000 \
 	persist.radio.apm_sim_not_pwdn=1 \
+	persist.vendor.radio.apm_sim_not_pwdn=1 \
 	persist.vendor.radio.custom_ecc=1 \
 	persist.vendor.radio.data_con_rprt=1 \
 	persist.vendor.radio.dfr_mode_set=1 \
