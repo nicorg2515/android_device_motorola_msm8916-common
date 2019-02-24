@@ -83,8 +83,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # IMS
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.dbg.volte_avail_ovr=1 \
-	persist.dbg.vt_avail_ovr=1  \
-	persist.dbg.wfc_avail_ovr=1 \
+	persist.dbg.vt_avail_ovr=0  \
 	persist.ims.volte=true \
 	persist.ims.vt=false \
 	persist.ims.vt.epdg=false \
@@ -98,7 +97,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.radio.VT_USE_MDM_TIME=0 \
 	persist.rmnet.mux=enabled \
 	persist.dbg.ims_volte_enable=1 \
-	persist.dbg.wfc_avail_ovr=1 \
 	persist.radio.calls.on.ims=true \
 	persist.vendor.radio.jbims=1 \
 	persist.volte_enabled_by_hw=1 \
