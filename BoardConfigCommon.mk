@@ -150,6 +150,7 @@ TARGET_HAS_NO_POWER_STATS := true
 endif
 TARGET_HAS_NO_WLAN_STATS := true
 TARGET_USES_INTERACTION_BOOST := true
+TARGET_TAP_TO_WAKE_NODE := /sys/android_touch/doubletap2wake_master
 
 # Partitions
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
