@@ -5,8 +5,6 @@ sed -i "s|libqsap_sdk.so|libqsapshim.so|g" /vendor/lib/libmdmcutback.so
 restorecon /vendor/lib/libmdmcutback.so
 sed -i "s|libcutils.so|libsensor.so|g" /vendor/lib/libmot_sensorlistener.so
 restorecon /vendor/lib/libmot_sensorlistener.so
-sed -i "s|libstagefright.so|lib-imsvt_shim.so|g" /vendor/lib/lib-imsvt.so
-restorecon /vendor/lib/lib-imsvt.so
 
 #Hex edit Merlin libs
 sed -i "s|libcutils.so|libc_util.so|g" /vendor/lib/libmmcamera_wavelet_lib.so

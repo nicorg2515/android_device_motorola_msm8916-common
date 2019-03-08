@@ -24,15 +24,6 @@ LOCAL_VENDOR_MODULE := true
 LOCAL_MODULE_TAGS := optional
 include $(BUILD_SHARED_LIBRARY)
 
-# IMS Shim
-include $(CLEAR_VARS)
-LOCAL_SRC_FILES := MediaBuffer.cpp
-LOCAL_SHARED_LIBRARIES := libui libgui libstagefright_foundation libstagefright
-LOCAL_MODULE := lib-imsvt_shim
-LOCAL_VENDOR_MODULE := true
-LOCAL_MODULE_TAGS := optional
-include $(BUILD_SHARED_LIBRARY)
-
 # RIL + Qsap Shim
 include $(CLEAR_VARS)
 LOCAL_SRC_FILES := ASensorManager.cpp libqsap_shim.c
