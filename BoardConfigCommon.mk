@@ -158,6 +158,11 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 PRODUCT_VENDOR_MOVE_ENABLED := true
 
+# Perf
+PRODUCT_BOOT_JARS += \
+    QPerformance \
+    UxPerformance
+
 # Qualcomm support
 BOARD_USES_QCOM_HARDWARE := true
 

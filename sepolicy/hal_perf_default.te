@@ -1,0 +1,6 @@
+get_prop(hal_perf_default, vendor_mpctl_prop)
+allow hal_perf proc_kernel_sched:file rw_file_perms;
+
+# connect to the thermal engine
+allow hal_perf_default thermal_socket:sock_file write;
+allow hal_perf_default thermal-engine:unix_stream_socket connectto;
