@@ -140,20 +140,20 @@ PRODUCT_PACKAGES += \
 # Firmware Extraction
 ifeq ($(filter surnia,$(TARGET_DEVICE)),)
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/extract_firmware.sh:$(TARGET_COPY_OUT_VENDOR)/bin/extract_firmware.sh
+    $(LOCAL_PATH)/prebuilt/bin/extract_firmware.sh:install/bin/extract_firmware.sh
 endif
 
 # Shims Wrapping
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/wrap_shims.sh:$(TARGET_COPY_OUT_VENDOR)/bin/wrap_shims.sh
+    $(LOCAL_PATH)/prebuilt/bin/wrap_shims.sh:install/bin/wrap_shims.sh
 
 # Build Props Update
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/update_build_prop.sh:$(TARGET_COPY_OUT_VENDOR)/bin/update_build_prop.sh \
-    $(LOCAL_PATH)/configs/system_XT1556.prop:$(TARGET_COPY_OUT_VENDOR)/etc/system_XT1556.prop \
-    $(LOCAL_PATH)/configs/vendor_XT1556.prop:$(TARGET_COPY_OUT_VENDOR)/etc/vendor_XT1556.prop \
-    $(LOCAL_PATH)/configs/system_XT1557.prop:$(TARGET_COPY_OUT_VENDOR)/etc/system_XT1557.prop \
-    $(LOCAL_PATH)/configs/vendor_XT1557.prop:$(TARGET_COPY_OUT_VENDOR)/etc/vendor_XT1557.prop
+    $(LOCAL_PATH)/prebuilt/bin/update_build_prop.sh:install/bin/update_build_prop.sh \
+    $(LOCAL_PATH)/prebuilt/bin/system_XT1556.prop:install/bin/system_XT1556.prop \
+    $(LOCAL_PATH)/prebuilt/bin/vendor_XT1556.prop:install/bin/vendor_XT1556.prop \
+    $(LOCAL_PATH)/prebuilt/bin/system_XT1557.prop:install/bin/system_XT1557.prop \
+    $(LOCAL_PATH)/prebuilt/bin/vendor_XT1557.prop:install/bin/vendor_XT1557.prop
 
 # FM
 PRODUCT_PACKAGES += \

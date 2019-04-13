@@ -12,22 +12,27 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-def FullOTA_InstallEnd(info):
-  info.script.AppendExtra('ifelse(is_mounted("/system"), unmount("/system"));')
-  info.script.AppendExtra('ifelse(is_mounted("/vendor"), unmount("/vendor"));')
-  info.script.AppendExtra('mount("ext4", "EMMC", "/dev/block/bootdevice/by-name/system", "/system");');
-  info.script.AppendExtra('mount("ext4", "EMMC", "/dev/block/bootdevice/by-name/cache", "/vendor", "");')
-  info.script.AppendExtra('mount("ext4", "EMMC", "/dev/block/bootdevice/by-name/modem", "/firmware", "");')
-  info.script.AppendExtra('ui_print("Extracting modem firmware");')
-  info.script.AppendExtra('assert(run_program("/sbin/sh", "/vendor/bin/extract_firmware.sh") == 0);')
-  info.script.AppendExtra('ui_print("Firmware extracted");')
-  info.script.AppendExtra('ui_print("Wrapping shims");')
-  info.script.AppendExtra('assert(run_program("/sbin/sh", "/vendor/bin/wrap_shims.sh") == 0);')
-  info.script.AppendExtra('ui_print("Shims wrapped");')
-  info.script.AppendExtra('ui_print("Updating build props");')
-  info.script.AppendExtra('assert(run_program("/sbin/sh", "/vendor/bin/update_build_prop.sh") == 0);')
-  info.script.AppendExtra('ui_print("Build props updated");')
-  info.script.AppendExtra('unmount("/system");')
-  info.script.AppendExtra('unmount("/vendor");')
-  info.script.AppendExtra('unmount("/firmware");')
+def AssertRunScript(info, name, arg):
+  info.script.AppendExtra(('assert(run_program("/tmp/install/bin/%s", "%s") == 0);' % (name, arg)))
 
+def FullOTA_PostValidate(info):
+  """Mount the partitions"""
+  info.script.Mount("/system")
+  info.script.Mount("/vendor")
+  info.script.AppendExtra('mount("ext4", "EMMC", "/dev/block/bootdevice/by-name/modem", "/firmware", "");')
+  """extract_firmware.sh"""
+  info.script.Print("Extracting modem firmware")
+  AssertRunScript(info, "extract_firmware.sh", "")
+  info.script.Print("Firmware extracted")
+  """wrap_shims.sh"""
+  info.script.Print( "Wrapping shims")
+  AssertRunScript(info, "wrap_shims.sh", "")
+  info.script.Print("Shims wrapped")
+  """update_build_prop.sh"""
+  info.script.Print("Updating build props")
+  AssertRunScript(info, "update_build_prop.sh", "")
+  info.script.Print("Build props updated")
+  """Unmount the partitions"""
+  info.script.Unmount("/system")
+  info.script.Unmount("/vendor")
+  info.script.AppendExtra('unmount("/firmware");')

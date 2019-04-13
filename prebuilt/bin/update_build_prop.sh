@@ -22,11 +22,11 @@ append_prop() {
 sku=$(getprop ro.boot.hardware.sku)
 
 if [ "$sku" = "XT1556" ]; then
-    append_prop "/system/build.prop" "/vendor/etc/system_XT1556.prop"
-    append_prop "/vendor/build.prop" "/vendor/etc/vendor_XT1556.prop"
+    append_prop "/system/build.prop" "/tmp/install/bin/system_XT1556.prop"
+    append_prop "/vendor/build.prop" "/tmp/install/bin/vendor_XT1556.prop"
 elif [ "$sku" = "XT1557" ]; then
-    append_prop "/system/build.prop" "/vendor/etc/system_XT1557.prop"
-    append_prop "/vendor/build.prop" "/vendor/etc/vendor_XT1557.prop"
+    append_prop "/system/build.prop" "/tmp/install/bin/system_XT1557.prop"
+    append_prop "/vendor/build.prop" "/tmp/install/bin/vendor_XT1557.prop"
 fi
 
 unset sku
