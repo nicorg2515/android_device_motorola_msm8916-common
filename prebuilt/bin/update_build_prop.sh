@@ -1,32 +1,29 @@
 #!/sbin/sh
 
-#append_prop $target $append
-append_prop() {
+#update_prop $target $update
+update_prop() {
     target=$1
-    append=$2
+    update=$2
+    backup="$target.backup"
 
-    #comment pre-existing properties
-    pattern=$(grep "^[^#]*=" $append | sed "s/=.*/=\/s\/\^\/#\//" |  sed "s/^/\/\^/" | paste -sd ";" -)
-    sed -i $pattern $target
+    #backup orginial prop file
+    mv $target $backup
 
-    #append header
-    printf "\n# %s\n" "$append" >> $target
+    #write header, update and then original prop
+    printf "# %s\n" "$update" | cat - $update $backup > $target
 
-    #append prop
-    cat $append >> $target
-
-    unset target append
+    unset target update backup
 }
 
 #update build props for merlin variants
 sku=$(getprop ro.boot.hardware.sku)
 
 if [ "$sku" = "XT1556" ]; then
-    append_prop "/system/build.prop" "/tmp/install/bin/system_XT1556.prop"
-    append_prop "/vendor/build.prop" "/tmp/install/bin/vendor_XT1556.prop"
+    update_prop "/system/build.prop" "/tmp/install/bin/system_XT1556.prop"
+    update_prop "/vendor/build.prop" "/tmp/install/bin/vendor_XT1556.prop"
 elif [ "$sku" = "XT1557" ]; then
-    append_prop "/system/build.prop" "/tmp/install/bin/system_XT1557.prop"
-    append_prop "/vendor/build.prop" "/tmp/install/bin/vendor_XT1557.prop"
+    update_prop "/system/build.prop" "/tmp/install/bin/system_XT1557.prop"
+    update_prop "/vendor/build.prop" "/tmp/install/bin/vendor_XT1557.prop"
 fi
 
 unset sku
@@ -34,7 +31,7 @@ unset sku
 #fix permission and context
 chmod 644 "/system/build.prop"
 chmod 644 "/vendor/build.prop"
-restorecon "/system/build.prop"
-restorecon "/vendor/build.prop"
+chcon u:object_r:system_file:s0 "/system/build.prop"
+chcon u:object_r:vendor_file:s0  "/vendor/build.prop"
 
 exit 0
