@@ -81,7 +81,11 @@
                 </devicePort>
                 <devicePort tagName="Line" type="AUDIO_DEVICE_OUT_LINE" role="sink">
                 </devicePort>
-                <devicePort tagName="BT SCO All" type="AUDIO_DEVICE_OUT_ALL_SCO" role="sink">
+                <devicePort tagName="BT SCO" type="AUDIO_DEVICE_OUT_BLUETOOTH_SCO" role="sink">
+                </devicePort>
+                <devicePort tagName="BT SCO Headset" type="AUDIO_DEVICE_OUT_BLUETOOTH_SCO_HEADSET" role="sink">
+                </devicePort>
+                <devicePort tagName="BT SCO Car Kit" type="AUDIO_DEVICE_OUT_BLUETOOTH_SCO_CARKIT" role="sink">
                 </devicePort>
                 <devicePort tagName="Telephony Tx" type="AUDIO_DEVICE_OUT_TELEPHONY_TX" role="sink">
                 </devicePort>
@@ -110,7 +114,11 @@
                        sources="primary output,deep_buffer,compressed_offload"/>
                 <route type="mix" sink="Line"
                        sources="primary output,deep_buffer,compressed_offload"/>
-                <route type="mix" sink="BT SCO All"
+                <route type="mix" sink="BT SCO"
+                       sources="primary output,deep_buffer,compressed_offload"/>
+                <route type="mix" sink="BT SCO Headset"
+                       sources="primary output,deep_buffer,compressed_offload"/>
+                <route type="mix" sink="BT SCO Car Kit"
                        sources="primary output,deep_buffer,compressed_offload"/>
                 <route type="mix" sink="Telephony Tx"
                        sources="voice_tx"/>
