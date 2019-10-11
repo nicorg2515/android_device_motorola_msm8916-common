@@ -237,6 +237,10 @@ PRODUCT_PACKAGES += \
     libOmxVidcCommon \
     libstagefrighthw
 
+# Power
+PRODUCT_PACKAGES += \
+    android.hardware.power@1.1-service-qti
+
 # Qualcomm
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/privapp-permissions-qti.xml
@@ -251,10 +255,6 @@ PRODUCT_PACKAGES += \
     init.qcom.rc \
     stml0xx_wrapper.sh \
     ueventd.rc
-
-# Power
-PRODUCT_PACKAGES += \
-    android.hardware.power@1.1-service-qti
 
 # RIL
 PRODUCT_PACKAGES += \
