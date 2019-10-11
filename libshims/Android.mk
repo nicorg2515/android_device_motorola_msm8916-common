@@ -48,14 +48,7 @@ include $(BUILD_SHARED_LIBRARY)
 
 # Boring-ssl shim
 include $(CLEAR_VARS)
-LOCAL_SRC_FILES := \
-    bio_b64.c \
-    p_dec.c \
-    p_enc.c \
-    p_open.c \
-    p_seal.c \
-    rsa_pss.c
-LOCAL_SHARED_LIBRARIES := liblog libcrypto
+LOCAL_SHARED_LIBRARIES := libboringssl-compat
 LOCAL_MODULE := libboring
 LOCAL_VENDOR_MODULE := true
 LOCAL_MODULE_TAGS := optional
