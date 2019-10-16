@@ -15,6 +15,9 @@
 /(vendor|system/vendor)/bin/init\.qcom\.ril\.sh             u:object_r:qcom_ril_exec:s0
 /(vendor|system/vendor)/bin/stml0xx_wrapper\.sh             u:object_r:stml0xx_exec:s0
 
+# fsg
+/fsg(/.*)?             u:object_r:fsg_file:s0
+
 # Gesture
 /sys/android_touch/doubletap2wake_master                    u:object_r:gesture_sysfs:s0
 
