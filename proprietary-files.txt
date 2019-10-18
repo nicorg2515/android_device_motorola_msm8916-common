@@ -188,7 +188,6 @@ vendor/lib/libsubsystem_control.so
 vendor/lib/libSubSystemShutdown.so
 
 # Peripheral Manager
-vendor/bin/pm-service
 vendor/lib/libperipheral_client.so
 
 # Sensorhub Firmware
