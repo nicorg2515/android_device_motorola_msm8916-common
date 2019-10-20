@@ -1,5 +1,7 @@
 ro.mot.build.customerid=retasia
 ro.product.device=merlin
+ro.product.system.device=merlin
 ro.build.product=merlin
 ro.build.description=merlin_retasia-user 6.0.1 MPD24.107-56 30 release-keys
 ro.build.fingerprint=motorola/merlin_retasia/merlin:6.0.1/MPD24.107-56/30:user/release-keys
+ro.system.build.fingerprint=motorola/merlin_retasia/merlin:6.0.1/MPD24.107-56/30:user/release-keys
