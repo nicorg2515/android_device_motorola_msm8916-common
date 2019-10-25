@@ -1,0 +1,2 @@
+# Allow LiveDisplay to access pps socket
+unix_socket_connect(hal_lineage_livedisplay_qti, pps, mm-pp-daemon)
