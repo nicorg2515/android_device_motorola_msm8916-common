@@ -99,6 +99,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
 	debug.stagefright.ccodec=0 \
+	debug.stagefright.omx_default_rank.sw-audio=1 \
+	debug.stagefright.omx_default_rank=0 \
 	vidc.enc.narrow.searchrange=1 \
 	mm.enable.smoothstreaming=true \
 	mmp.enable.3g2=true \
