@@ -98,6 +98,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
+	debug.stagefright.ccodec=0 \
 	vidc.enc.narrow.searchrange=1 \
 	mm.enable.smoothstreaming=true \
 	mmp.enable.3g2=true \
