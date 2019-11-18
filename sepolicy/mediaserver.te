@@ -35,3 +35,6 @@ unix_socket_connect(mediaserver, sensors, sensors)
 allow mediaserver camera_bgproc_service:service_manager { add find };
 allow mediaserver cameraserver_service:service_manager { add find };
 allow mediaserver fwk_camera_hwservice:service_manager { add find };
+
+# Use HALs
+hal_client_domain(mediaserver, hal_lineage_camera_motor)
