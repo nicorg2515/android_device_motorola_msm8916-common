@@ -177,6 +177,10 @@ on post-fs
     # Allow writing to the kernel trace log.
     chmod 0222 /sys/kernel/debug/tracing/trace_marker
 
+    # Start qseecom daemon early
+    start vendor.qseecomd
+    wait_for_prop sys.listeners.registered true
+
     mkdir /persist/camera 0755 oem_5004 oem_5004
     mkdir /persist/camera/ledcal 0775 camera oem_5004
     mkdir /persist/factory 0755 oem_5004 oem_5004
@@ -388,7 +392,7 @@ on property:persist.usb.chgdisabled=1
 on property:persist.usb.chgdisabled=0
     write /sys/class/power_supply/battery/charging_enabled 1
 
-service qseecomd /vendor/bin/qseecomd
+service vendor.qseecomd /vendor/bin/qseecomd
    class core
    user root
    group root
