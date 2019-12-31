@@ -19,4 +19,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Whether device supports lift to wake -->
     <bool name="config_supportsLiftToWake">false</bool>
+
+    <!-- Whether encryption_and_credentials_encryption_status should be shown or not. -->
+    <bool name="config_show_encryption_and_credentials_encryption_status">false</bool>
 </resources>
