@@ -25,6 +25,7 @@ import android.util.Log;
 import java.lang.System;
 
 import org.lineageos.settings.device.LineageActionsSettings;
+import org.lineageos.settings.device.ScreenStateNotifier;
 import org.lineageos.settings.device.SensorAction;
 import org.lineageos.settings.device.SensorHelper;
 

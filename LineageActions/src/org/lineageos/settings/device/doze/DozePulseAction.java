@@ -22,6 +22,7 @@ import android.content.Intent;
 import android.os.UserHandle;
 import android.util.Log;
 
+import org.lineageos.settings.device.ScreenStateNotifier;
 import org.lineageos.settings.device.SensorAction;
 
 public class DozePulseAction implements SensorAction, ScreenStateNotifier {

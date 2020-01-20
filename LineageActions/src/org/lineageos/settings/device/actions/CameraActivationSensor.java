@@ -23,25 +23,27 @@ import android.hardware.SensorEventListener;
 import android.util.Log;
 
 import org.lineageos.settings.device.LineageActionsSettings;
+import org.lineageos.settings.device.ScreenStateNotifier;
 import org.lineageos.settings.device.SensorHelper;
 
-public class CameraActivationSensor implements SensorEventListener, UpdatedStateNotifier {
+public class CameraActivationSensor implements SensorEventListener, UpdatedStateNotifier, ScreenStateNotifier {
     private static final String TAG = "LineageActions-CameraSensor";
 
     private final LineageActionsSettings mLineageActionsSettings;
     private final SensorHelper mSensorHelper;
 
     private final Sensor mSensor;
-    private final Sensor mProx;
+    private final Sensor mStowSensor;
 
     private boolean mIsEnabled;
-    private boolean mProxIsCovered;
+    private boolean mIsStowed;
+    private boolean mStowedEnabled;
 
     public CameraActivationSensor(LineageActionsSettings lineageActionsSettings, SensorHelper sensorHelper) {
         mLineageActionsSettings = lineageActionsSettings;
         mSensorHelper = sensorHelper;
         mSensor = sensorHelper.getCameraActivationSensor();
-        mProx = sensorHelper.getProximitySensor();
+        mStowSensor = sensorHelper.getStowSensor();
     }
 
     @Override
@@ -49,21 +51,38 @@ public class CameraActivationSensor implements SensorEventListener, UpdatedState
         if (mLineageActionsSettings.isCameraGestureEnabled() && !mIsEnabled) {
             Log.d(TAG, "Enabling");
             mSensorHelper.registerListener(mSensor, this);
-            mSensorHelper.registerListener(mProx, mProxListener);
             mIsEnabled = true;
         } else if (! mLineageActionsSettings.isCameraGestureEnabled() && mIsEnabled) {
             Log.d(TAG, "Disabling");
             mSensorHelper.unregisterListener(this);
-            mSensorHelper.unregisterListener(mProxListener);
             mIsEnabled = false;
+        }
+    }
+
+    @Override
+    public void screenTurnedOn() {
+        if (mStowedEnabled) {
+            Log.d(TAG, "Disabling Stowed Sensor");
+            mSensorHelper.unregisterListener(mStowListener);
+            mStowedEnabled = false;
+        }
+        mIsStowed = false;
+    }
+
+    @Override
+    public void screenTurnedOff() {
+        if (mLineageActionsSettings.isCameraGestureEnabled() && !mStowedEnabled) {
+            Log.d(TAG, "Enabling Stowed Sensor");
+            mSensorHelper.registerListener(mStowSensor, mStowListener);
+            mStowedEnabled = true;
         }
     }
 
     @Override
     public void onSensorChanged(SensorEvent event) {
         Log.d(TAG, "activate camera");
-        if (mProxIsCovered) {
-            Log.d(TAG, "proximity sensor covered, ignoring camera");
+        if (mIsStowed && mStowedEnabled) {
+            Log.d(TAG, "phone is stowed, ignoring camera action");
             return;
         }
         mLineageActionsSettings.cameraAction();
@@ -73,15 +92,14 @@ public class CameraActivationSensor implements SensorEventListener, UpdatedState
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
     }
 
-    private SensorEventListener mProxListener = new SensorEventListener() {
+    private SensorEventListener mStowListener = new SensorEventListener() {
         @Override
         public synchronized void onSensorChanged(SensorEvent event) {
-            mProxIsCovered = event.values[0] < mProx.getMaximumRange();
+            mIsStowed = (event.values[0] != 0);
         }
 
         @Override
         public void onAccuracyChanged(Sensor mSensor, int accuracy) {
         }
     };
-
 }

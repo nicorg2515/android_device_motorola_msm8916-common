@@ -36,8 +36,6 @@ import org.lineageos.settings.device.actions.UpdatedStateNotifier;
 import org.lineageos.settings.device.doze.DozePulseAction;
 import org.lineageos.settings.device.doze.FlatUpSensor;
 import org.lineageos.settings.device.doze.ProximitySensor;
-import org.lineageos.settings.device.doze.ScreenReceiver;
-import org.lineageos.settings.device.doze.ScreenStateNotifier;
 import org.lineageos.settings.device.doze.StowSensor;
 
 public class LineageActionsService extends IntentService implements ScreenStateNotifier,
@@ -67,8 +65,11 @@ public class LineageActionsService extends IntentService implements ScreenStateN
         mScreenStateNotifiers.add(new ProximitySensor(lineageActionsSettings, sensorHelper, dozePulseAction));
         mScreenStateNotifiers.add(new StowSensor(lineageActionsSettings, sensorHelper, dozePulseAction));
 
+        CameraActivationSensor camSensor = new CameraActivationSensor(lineageActionsSettings, sensorHelper);
+        mScreenStateNotifiers.add(camSensor);
+
         // Other actions that are always enabled
-        mUpdatedStateNotifiers.add(new CameraActivationSensor(lineageActionsSettings, sensorHelper));
+        mUpdatedStateNotifiers.add(camSensor);
         if (!Device.isSurnia()){
             mUpdatedStateNotifiers.add(new ChopChopSensor(lineageActionsSettings, sensorHelper));
         } else {
