@@ -126,6 +126,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
+	DEVICE_PROVISIONED=1 \
 	persist.data.mode=concurrent \
 	persist.data.netmgrd.qos.enable=true \
 	persist.data.qmi.adb_logmask=0 \
